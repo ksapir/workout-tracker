@@ -4,15 +4,15 @@ const db = require('../models');
 
 //Gets all workouts
 router.get("/api/workouts", (req, res) => {
-    db.Workout.find({}).then(dbWorkout => {
-        dbWorkout.forEach(workout => {
-            let total = 0;
-            workout.exercises.forEach(e => {
-                total += e.duration;
-            });
-            workout.totalDuration = total;
-        });
-        res.json(dbWorkout);
+    db.Workout.aggregate([
+        {
+          $addFields: {
+            totalDuration:{$sum: "$exercises.duration"}
+          }
+        }
+      ]) 
+        .then((dbWorkout) => {
+          res.json(dbWorkout);
     }).catch(err => {
         res.json(err);
     });
@@ -23,7 +23,6 @@ router.put("/api/workouts/:id", (req, res) => {
     db.Workout.findOneAndUpdate(
         { _id: req.params.id },
         {
-            $inc: { totalDuration: req.body.duration },
             $push: { exercises: req.body }
         },
         { new: true }).then(dbWorkout => {
