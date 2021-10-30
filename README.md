@@ -1,7 +1,7 @@
 # Workout Tacker
 
 ## Description:
-- Like a lot of difficult things, when it comes to exercising, being held accountable can have great influence on the results. This workout tracker will help with just that. Enter what kind of workout you're doing and all the details and you'll be able to track your stats.
+Like a lot of difficult things, when it comes to exercising, being held accountable can have great influence on the results. This workout tracker will help with just that. Enter what kind of workout you're doing as well as all the details and you'll be able to track your stats.
 
 ## Table of Contents:
 - [Installation](#installation)
@@ -23,7 +23,5 @@
 
 ## Contributors:
 - Karen Pion
-
-## Contact:
-- Github: ksapir
-- Email: karenlpion@gmail.com
+  -  Github: ksapir
+  - Email: karenlpion@gmail.com
